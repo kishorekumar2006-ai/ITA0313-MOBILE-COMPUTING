@@ -1,0 +1,19 @@
+digraph G {
+graph [rankdir=TB, bgcolor="white", pad="0.22", nodesep="0.32", ranksep="0.42", labelloc="t", label="Android layered architecture (conceptual)", fontsize=18, fontname="Arial"];
+node [shape=box, style="rounded", color="black", fontcolor="black", fontname="Arial", fontsize=12, margin="0.16,0.10"];
+edge [color="black", fontcolor="black", fontname="Arial", fontsize=10, arrowsize=0.7];
+app [label="Application layer\nActivities / UI / workers"];
+framework [label="Application framework\nManagers / system services"];
+runtime [label="Android Runtime (ART)\nDEX execution / GC / JNI"];
+native [label="Native libraries & daemons\nlibbinder / libc / media"];
+hal [label="Hardware abstraction layer\nAIDL HAL services"];
+drivers [label="Linux kernel & drivers\nScheduler / memory / Binder / SELinux"];
+hardware [label="Hardware\nCPU / GPU / modem / sensors / storage"];
+app -> framework [label="framework APIs"];
+framework -> runtime [label="managed execution"];
+framework -> native [label="native services"];
+native -> hal [label="HAL interfaces"];
+hal -> drivers [label="device operations"];
+drivers -> hardware [label="registers / interrupts / DMA"];
+framework -> drivers [label="Binder / syscalls"];
+}

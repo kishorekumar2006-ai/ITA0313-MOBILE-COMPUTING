@@ -1,0 +1,23 @@
+digraph G {
+graph [rankdir=TB, bgcolor="white", pad="0.22", nodesep="0.32", ranksep="0.42", labelloc="t", label="RuralCare hybrid client/server architecture", fontsize=18, fontname="Arial"];
+node [shape=box, style="rounded", color="black", fontcolor="black", fontname="Arial", fontsize=12, margin="0.16,0.10"];
+edge [color="black", fontcolor="black", fontname="Arial", fontsize=10, arrowsize=0.7];
+a [label="Class A Android\nNative / Room DB / Keystore"];
+b [label="Class B iPhone\nSwift / Core Data / Keychain"];
+c [label="Class C feature phone\nJ2ME or WML constrained client"];
+local [label="Encrypted local queue\nrecord IDs / sequence / digest"];
+sync [label="Sync worker\nretry / idempotency / backoff"];
+api [label="API gateway\nTLS / OAuth / device auth"];
+service [label="Sync and validation service\nconflict resolution / audit"];
+db [label="Central database\nversioned records / ACKs"];
+a -> local [label="capture and encrypt"];
+b -> local [label="capture and encrypt"];
+c -> local [label="minimal store / device policy"];
+local -> sync [label="pending records"];
+sync -> api [label="batch upload"];
+api -> service [label="authenticated request"];
+service -> db [label="idempotent upsert"];
+db -> service [label="ACK / version"];
+service -> sync [label="acknowledgement"];
+sync -> local [label="mark synced"];
+}

@@ -1,0 +1,16 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontSize 12
+[*] --> Capture
+Capture --> Validate
+Validate --> AssignID : valid
+AssignID --> Encrypt
+Encrypt --> Queue : AEAD before write
+Queue --> NetworkCheck
+NetworkCheck --> Upload : available
+NetworkCheck --> Backoff : unavailable
+Backoff --> NetworkCheck : retry
+Upload --> Ack
+Ack --> Synced : idempotent commit
+@enduml

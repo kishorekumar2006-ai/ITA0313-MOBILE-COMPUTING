@@ -1,0 +1,18 @@
+digraph G {
+graph [rankdir=TB, bgcolor="white", pad="0.22", nodesep="0.32", ranksep="0.42", labelloc="t", label="Device power-state transition model", fontsize=18, fontname="Arial"];
+node [shape=box, style="rounded", color="black", fontcolor="black", fontname="Arial", fontsize=12, margin="0.16,0.10"];
+edge [color="black", fontcolor="black", fontname="Arial", fontsize=10, arrowsize=0.7];
+active [label="ACTIVE\ninteractive UI / sensors"];
+idle [label="IDLE\nscreen off / batching"];
+suspended [label="SUSPENDED\nCPU mostly asleep"];
+wake [label="WAKE EVENT\npush / alarm / user"];
+saver [label="BATTERY SAVER\nreduced sampling"];
+active -> idle [label="screen off + no active work"];
+idle -> suspended [label="idle timeout / constraints"];
+suspended -> wake [label="push / RTC / user"];
+wake -> active [label="user interaction"];
+wake -> idle [label="short background event completes"];
+active -> saver [label="battery ≤ 15%"];
+idle -> saver [label="battery ≤ 15%"];
+saver -> active [label="charge or user override"];
+}

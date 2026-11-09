@@ -1,0 +1,25 @@
+digraph G {
+graph [rankdir=LR, bgcolor="white", pad="0.22", nodesep="0.42", ranksep="0.65", labelloc="t", label="Android cold launch sequence", fontsize=18, fontname="Arial"];
+node [shape=box, style="rounded", color="black", fontcolor="black", fontname="Arial", fontsize=12, margin="0.18,0.13", width=2.25, height=0.72, fixedsize=false];
+edge [color="black", fontcolor="black", fontname="Arial", fontsize=10, arrowsize=0.75];
+{rank=same; tap; launcher; ams;}
+{rank=same; zygote; init; runtime;}
+{rank=same; activity; layout; surface;}
+tap [label="1. User taps icon"];
+launcher [label="2. Launcher resolves launch intent"];
+ams [label="3. ActivityTaskManager / system_server"];
+zygote [label="4. Zygote forks app process"];
+init [label="5. UID / SELinux process setup"];
+runtime [label="6. ART runtime and class loading"];
+activity [label="7. Application / Activity lifecycle"];
+layout [label="8. Measure, layout and draw"];
+surface [label="9. SurfaceFlinger presents first frame"];
+tap -> launcher [label="launch intent"];
+launcher -> ams [label="start request"];
+ams -> zygote [label="new process required"];
+zygote -> init [label="fork + specialise"];
+init -> runtime [label="attach runtime"];
+runtime -> activity [label="create components"];
+activity -> layout [label="build view tree"];
+layout -> surface [label="buffer / present"];
+}

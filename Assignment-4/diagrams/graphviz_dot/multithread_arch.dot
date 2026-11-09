@@ -1,0 +1,19 @@
+digraph G {
+graph [rankdir=TB, bgcolor="white", pad="0.22", nodesep="0.32", ranksep="0.42", labelloc="t", label="Single-threaded versus background executor MVVM design", fontsize=18, fontname="Arial"];
+node [shape=box, style="rounded", color="black", fontcolor="black", fontname="Arial", fontsize=12, margin="0.16,0.10"];
+edge [color="black", fontcolor="black", fontname="Arial", fontsize=10, arrowsize=0.7];
+view [label="View / main thread"];
+vm [label="ViewModel / dispatch"];
+queue [label="Bounded executor queue"];
+workers [label="Worker pool\nparse / filter chunks"];
+merge [label="Join / merge / validate"];
+repo [label="Repository / database"];
+render [label="Post result to main thread"];
+view -> vm [label="user event"];
+vm -> queue [label="submit bounded task"];
+queue -> workers [label="dispatch chunks"];
+workers -> merge [label="partial results"];
+merge -> repo [label="persist result"];
+repo -> render [label="state update"];
+render -> view [label="draw"];
+}

@@ -1,0 +1,10 @@
+case,time_s,event,state_or_effect
+Foreground,0,onCreate,Process created / activity initialised
+Foreground,1,onStart,Activity visible
+Foreground,2,onResume,Interaction enabled
+Background,0,onPause,Loses foreground focus
+Background,1,onStop,No longer visible
+Background,300,cached,Process may remain cached; no callback guaranteed at kill
+Low memory,301,trim memory signal,System asks app to release resources where callback applies
+Low memory,302,process reclaimed,Process death possible; not an Activity callback
+Relaunch,0,new process,Persisted state read; Activity recreated; saved-state restoration conditional

@@ -1,0 +1,18 @@
+digraph G {
+graph [rankdir=TB, bgcolor="white", pad="0.22", nodesep="0.32", ranksep="0.42", labelloc="t", label="Background message delivery – Android and iOS (simplified)", fontsize=18, fontname="Arial"];
+node [shape=box, style="rounded", color="black", fontcolor="black", fontname="Arial", fontsize=12, margin="0.16,0.10"];
+edge [color="black", fontcolor="black", fontname="Arial", fontsize=10, arrowsize=0.7];
+server [label="Message server"];
+push [label="FCM / APNs"];
+os [label="OS push subsystem"];
+kernel [label="Radio / kernel networking"];
+service [label="System service / notification broker"];
+runtime [label="App process / runtime"];
+callback [label="App callback / notification"];
+server -> push [label="push request"];
+push -> os [label="provider delivery"];
+os -> kernel [label="wake / network event"];
+kernel -> service [label="authenticated event"];
+service -> runtime [label="launch or resume if eligible"];
+runtime -> callback [label="callback / notification"];
+}

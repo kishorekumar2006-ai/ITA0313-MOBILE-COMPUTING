@@ -1,0 +1,6 @@
+step,single_thread_design,parallel_design,reason
+1,UI thread receives tap,UI thread enqueues task,Keep input handling responsive
+2,UI thread performs parse/filter,Executor splits chunks over 4 workers,Large tasks amortise scheduling
+3,UI blocked until complete,Workers join; result posted to UI,UI does not touch views off-thread
+4,Render delayed for long task,Render may proceed while workers run,Less jank when work is sufficiently large
+5,Small workload avoids pool setup,Small workload still pays dispatch/sync cost,Parallelism can be slower below crossover size

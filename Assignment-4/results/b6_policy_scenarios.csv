@@ -1,0 +1,7 @@
+scenario,battery_percent,charging,network,motion,sampling_interval_s,upload_interval_s,upload_action,policy_reason,samples_per_hour,radio_sessions_per_hour,estimated_incremental_telemetry_mAh_per_hour,security,evidence_type
+Charging / Wi-Fi,95,True,Wi-Fi,moving,10,30,UPLOAD_BATCH,charging-wifi,360.0,120.0,2.93,YES – AEAD before local queue; TLS for upload,SIMULATED
+80% battery / LTE moving,80,False,LTE,moving,30,60,BATCH_LTE,mobile-lte,120.0,60.0,1.25,YES – AEAD before local queue; TLS for upload,SIMULATED
+20% battery / LTE stationary,20,False,LTE,stationary,120,900,BATCH_LTE,low-battery-stationary,30.0,4.0,0.218,YES – AEAD before local queue; TLS for upload,SIMULATED
+Battery saver / LTE,14,False,LTE,moving,300,1800,DEFER_UNTIL_WIFI_OR_CHARGE,critical-battery,12.0,2.0,0.122,YES – AEAD before local queue; TLS for upload,SIMULATED
+No connectivity,55,False,NONE,stationary,60,NONE,QUEUE_ONLY,offline,60.0,0,0.29,YES – AEAD before local queue; no network,SIMULATED
+Device hot,50,False,LTE,moving,180,900,DEFER_UPLOAD,thermal-protection,20.0,4.0,0.178,YES – AEAD before local queue; TLS for upload,SIMULATED

@@ -1,0 +1,4 @@
+scenario,hand_calculated_mAh_per_hour,prototype_simulation_mAh_per_hour,difference,validation
+Charging / Wi-Fi,2.93,2.93,0.0,PASS
+20% battery / LTE stationary,0.218,0.218,0.0,PASS
+No connectivity,0.29,0.29,0.0,PASS

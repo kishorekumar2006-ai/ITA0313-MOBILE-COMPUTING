@@ -1,0 +1,15 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontSize 12
+component "Application policy" as App
+component "JobScheduler / WorkManager" as Job
+component "Doze / App Standby" as Idle
+component "DVFS / CPU governor" as DVFS
+component "CPU / radio / GPS / display" as HW
+App --> Job
+Job --> Idle
+Idle --> DVFS
+DVFS --> HW
+App --> HW : sensor / network demand
+@enduml

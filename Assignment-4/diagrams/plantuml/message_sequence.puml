@@ -1,0 +1,17 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontSize 12
+actor Server
+participant "FCM / APNs" as Push
+participant "OS push subsystem" as OS
+participant "Kernel / radio" as Kernel
+participant "System service" as Svc
+participant "App runtime" as App
+Server -> Push : send push
+Push -> OS : provider delivery
+OS -> Kernel : network event / wake
+Kernel -> Svc : dispatch event
+Svc -> App : resume / launch if eligible
+App -> Server : fetch authenticated content
+@enduml

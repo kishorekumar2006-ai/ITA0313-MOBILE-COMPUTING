@@ -1,0 +1,15 @@
+digraph G {
+graph [rankdir=TB, bgcolor="white", pad="0.22", nodesep="0.32", ranksep="0.42", labelloc="t", label="Three power-engineering control layers", fontsize=18, fontname="Arial"];
+node [shape=box, style="rounded", color="black", fontcolor="black", fontname="Arial", fontsize=12, margin="0.16,0.10"];
+edge [color="black", fontcolor="black", fontname="Arial", fontsize=10, arrowsize=0.7];
+app [label="Application policy\nBatch sensors / release locks"];
+jobs [label="JobScheduler / WorkManager\nconstraints and deferral"];
+doze [label="Doze / App Standby\nOS idle quotas"];
+dvfs [label="DVFS / CPU governor\nfrequency and voltage"];
+hw [label="CPU / radio / GPS / display"];
+app -> jobs [label="schedule deferrable work"];
+jobs -> doze [label="honour idle limits"];
+doze -> dvfs [label="reduced wake demand"];
+dvfs -> hw [label="scale CPU power"];
+app -> hw [label="sampling / radio requests"];
+}

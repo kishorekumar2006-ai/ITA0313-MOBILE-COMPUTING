@@ -1,0 +1,6 @@
+policy,mechanism,wakeups_per_8h,cpu_energy_mAh,radio_energy_mAh,total_estimated_energy_mAh,interpretation
+Baseline always-awake,CPU high 8h,1000,70,30,360,No idle batching; processor held awake
+DVFS enabled,CPU frequency adapts,1000,48,30,290,CPU energy reduced; compute may take longer
+OS idle control,Doze / standby windows,80,14,6,175,Network and jobs deferred during idle; app must tolerate delay
+App batching,Batch sensors and network,24,18,8,196,Fewer radio wake-ups; batch latency increases
+Combined adaptive policy,DVFS + OS scheduling + batching,18,12,5,142,Lowest modelled energy; reduced timeliness for non-urgent work

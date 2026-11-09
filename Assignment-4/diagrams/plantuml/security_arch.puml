@@ -1,0 +1,18 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontSize 12
+component UI
+component Domain
+database "Encrypted local DB" as DB
+component "Keystore / Keychain" as Key
+component "TLS client" as TLS
+component "API gateway" as API
+component "Audit / policy" as Audit
+UI --> Domain
+Domain --> DB
+DB --> Key : data key
+Domain --> TLS
+TLS --> API
+API --> Audit
+@enduml

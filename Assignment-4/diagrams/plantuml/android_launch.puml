@@ -1,0 +1,20 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontSize 12
+actor User
+participant Launcher
+participant system_server
+participant Zygote
+participant AppProcess
+participant ART
+participant Activity
+participant SurfaceFlinger
+User -> Launcher : tap icon
+Launcher -> system_server : launch intent
+system_server -> Zygote : request process
+Zygote -> AppProcess : fork / specialise UID
+AppProcess -> ART : attach runtime / load classes
+ART -> Activity : create Application and Activity
+Activity -> SurfaceFlinger : render first frame
+@enduml

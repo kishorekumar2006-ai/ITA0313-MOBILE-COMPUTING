@@ -1,0 +1,5 @@
+condition,simulated_state,oom_adj_concept,resident_memory_mb,relative_importance,interpretation
+Foreground,Resumed / active,0,180,High,Remain alive unless extreme memory pressure
+Background for 5 min,Stopped / cached,500,176,Lower,May remain cached; no guarantee of survival
+Low-memory event,Background cached process,900,118,Very low,Trim caches; process may be killed by system
+Return after process death,New process / restored state,0,132,High after launch,Recreate from persisted state; callbacks do not imply process survived

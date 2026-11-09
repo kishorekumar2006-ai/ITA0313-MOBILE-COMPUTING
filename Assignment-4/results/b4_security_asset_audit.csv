@@ -1,0 +1,7 @@
+asset,attack_vector,mechanism_applied,result,reason
+Auth token,File read by another app,App sandbox + Keystore protected encryption,Blocked,Different UID cannot normally read private app files
+Local DB,Lost device / offline extraction,Encrypted DB + hardware-backed key + screen lock,Partially Blocked,Rooted/unlocked device or authenticated app can access plaintext
+API traffic,Wi-Fi interception,TLS with certificate and hostname validation,Blocked,Compromised endpoint/CA or app bypass remains possible
+Exported activity,External app invokes internal screen,Non-exported component + auth check,Blocked,Incorrectly exported deep link may reopen risk
+Camera data,Unauthorized camera access,Runtime permission + scoped capture,Partially Blocked,User-approved capture can still be misused by app logic
+Location data,Covert/background location access,"Permission scope, foreground indication, minimisation",Partially Blocked,Granted access and OS/location precision depend on settings

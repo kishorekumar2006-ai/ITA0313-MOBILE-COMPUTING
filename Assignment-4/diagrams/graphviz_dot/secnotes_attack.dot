@@ -1,0 +1,17 @@
+digraph G {
+graph [rankdir=TB, bgcolor="white", pad="0.22", nodesep="0.32", ranksep="0.42", labelloc="t", label="SecureNotes attack path (token theft plus cleartext interception)", fontsize=18, fontname="Arial"];
+node [shape=box, style="rounded", color="black", fontcolor="black", fontname="Arial", fontsize=12, margin="0.16,0.10"];
+edge [color="black", fontcolor="black", fontname="Arial", fontsize=10, arrowsize=0.7];
+victim [label="SecureNotes app"];
+badapp [label="Malicious local app"];
+file [label="Shared readable token file"];
+network [label="Unencrypted HTTP channel"];
+attacker [label="Network attacker"];
+api [label="Backend API"];
+victim -> file [label="stores token in shared path"];
+badapp -> file [label="reads exposed token"];
+victim -> network [label="sends token / patient data"];
+attacker -> network [label="sniffs or modifies traffic"];
+file -> api [label="stolen token replay"];
+network -> api [label="tampered request"];
+}

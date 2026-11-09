@@ -1,0 +1,27 @@
+digraph G {
+graph [rankdir=TB, bgcolor="white", pad="0.22", nodesep="0.32", ranksep="0.42", labelloc="t", label="Battery-aware secure field-tracking architecture", fontsize=18, fontname="Arial"];
+node [shape=box, style="rounded", color="black", fontcolor="black", fontname="Arial", fontsize=12, margin="0.16,0.10"];
+edge [color="black", fontcolor="black", fontname="Arial", fontsize=10, arrowsize=0.7];
+ui [label="UI layer\nMap / task state"];
+domain [label="Domain layer\nPolicy engine / rules"];
+data [label="Data layer\nRepository / queue"];
+local [label="Encrypted local DB"];
+os [label="OS services\nLocation / FGS / WorkManager"];
+bg [label="Background executor"];
+secure [label="Keystore / Secure storage"];
+api [label="Remote API / API gateway"];
+cloud [label="Cloud sync service\nDedup / ACK / conflict policy"];
+central [label="Central database"];
+ui -> domain [label="commands"];
+domain -> data [label="policy result"];
+data -> local [label="encrypted records"];
+domain -> os [label="location / scheduling"];
+os -> bg [label="bounded worker"];
+bg -> data [label="batch upload request"];
+data -> secure [label="key handle"];
+bg -> api [label="TLS + access token"];
+api -> cloud [label="validated request"];
+cloud -> central [label="idempotent upsert"];
+central -> cloud [label="ACK / version"];
+cloud -> bg [label="acknowledgement"];
+}

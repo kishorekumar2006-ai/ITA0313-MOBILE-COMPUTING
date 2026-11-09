@@ -1,0 +1,13 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontSize 12
+[*] --> ACTIVE
+ACTIVE --> IDLE : screen off / work completed
+IDLE --> SUSPENDED : idle timeout
+SUSPENDED --> IDLE : push / scheduled wake
+IDLE --> ACTIVE : user interaction
+ACTIVE --> BATTERY_SAVER : battery <= 15%
+IDLE --> BATTERY_SAVER : battery <= 15%
+BATTERY_SAVER --> ACTIVE : charging / user override
+@enduml

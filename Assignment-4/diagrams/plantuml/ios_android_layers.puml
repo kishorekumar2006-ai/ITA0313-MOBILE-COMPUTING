@@ -1,0 +1,19 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontSize 12
+package Android { component "App / Framework" as A
+component ART
+component "HAL / Native" as H
+component "Linux kernel" as L
+A --> ART
+ART --> H
+H --> L}
+package iOS { component "App / Cocoa Touch" as I
+component "Swift / Obj-C runtime" as R
+component "Core Services / Media" as C
+component "XNU / IOKit" as X
+I --> R
+R --> C
+C --> X}
+@enduml

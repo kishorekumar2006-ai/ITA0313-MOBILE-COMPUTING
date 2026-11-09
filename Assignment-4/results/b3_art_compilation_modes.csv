@@ -1,0 +1,4 @@
+compile_mode,cold_start_ms,warm_start_ms,cpu_bound_ms,allocation_workload_ms,list_render_ms,gc_events,total_gc_pause_ms,peak_heap_mb,evidence_type
+verify,520,285,840,610,52,9,31,168,SIMULATED teaching model
+speed-profile,410,218,545,455,34,7,22,158,SIMULATED teaching model
+speed,465,230,495,420,30,6,19,181,SIMULATED teaching model

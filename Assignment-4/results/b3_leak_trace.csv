@@ -1,0 +1,7 @@
+iteration,retained_heap_mb,gc_count,gc_pause_ms,main_thread_stall_ms,interpretation
+0,24,0,0,8,Baseline objects allocated and retained
+1,52,1,4,11,Static Activity reference prevents collection
+2,83,2,8,16,Heap growth continues after collection
+3,111,3,11,31,GC work increases; UI starts missing frame deadlines
+4,145,4,18,120,Severe stall; ANR risk rises
+5,176,5,24,700,Simulated watchdog threshold exceeded; ANR-like condition

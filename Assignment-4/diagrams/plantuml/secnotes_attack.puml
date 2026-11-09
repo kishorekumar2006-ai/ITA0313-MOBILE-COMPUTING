@@ -1,0 +1,15 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontSize 12
+actor "Malicious app / network attacker" as Attacker
+participant SecureNotes
+database "Shared token file" as File
+participant "HTTP network" as Net
+participant Backend
+SecureNotes -> File : write token (unsafe)
+Attacker -> File : read token across trust boundary
+SecureNotes -> Net : send sensitive request over HTTP
+Attacker -> Net : intercept / modify
+Attacker -> Backend : replay stolen token
+@enduml

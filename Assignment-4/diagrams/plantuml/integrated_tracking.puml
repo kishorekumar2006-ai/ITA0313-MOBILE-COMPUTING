@@ -1,0 +1,25 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontSize 12
+package Client { component UI
+component Domain
+component Data
+database "Encrypted local DB" as DB
+component "OS services" as OS
+component "Background executor" as BG
+component "Keystore" as Key
+UI --> Domain
+Domain --> Data
+Data --> DB
+Domain --> OS
+OS --> BG
+BG --> Data
+Data --> Key}
+package Cloud { component "API gateway TLS" as API
+component "Sync service" as Sync
+database "Central DB" as CDB
+BG --> API
+API --> Sync
+Sync --> CDB}
+@enduml

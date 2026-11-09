@@ -1,0 +1,4 @@
+case,prediction,simulated_audit_result,why
+Baseline TLS enabled,API traffic should be protected from passive interception,BLOCKED,TLS encrypts and authenticates channel in model
+Changed: cleartext HTTP allowed,Payload becomes readable and modifiable in transit,EXPOSED,Attacker on path can observe/alter unencrypted message
+Repair: HTTPS enforced and cleartext disabled,Cleartext regression rejected,BLOCKED,Manifest/network security configuration and endpoint TLS requirement

@@ -1,0 +1,15 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontSize 12
+component View
+component ViewModel
+queue "Bounded task queue" as Queue
+component "Worker pool" as Workers
+database Repository
+View --> ViewModel
+ViewModel --> Queue
+Queue --> Workers
+Workers --> Repository
+Repository --> View : state update on main thread
+@enduml

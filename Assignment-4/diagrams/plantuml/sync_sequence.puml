@@ -1,0 +1,18 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontSize 12
+participant Client
+database Queue
+participant Worker
+participant API
+database ServerDB
+Client -> Queue : write encrypted record
+Worker -> Queue : claim pending batch
+Worker -> API : TLS upload + batch ID
+API -> ServerDB : idempotent upsert
+ServerDB --> API : committed IDs
+API --> Worker : ACK
+Worker -> Queue : mark records synced
+note over Worker,Queue : Retry uses same idempotency key after timeout
+@enduml

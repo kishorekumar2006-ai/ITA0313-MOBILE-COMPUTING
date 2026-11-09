@@ -1,0 +1,8 @@
+stride_category,threat,asset,attack_vector,protection,residual_risk
+Spoofing,Forged session or API identity,Authentication token,Token replay / stolen credentials,"Short-lived token, TLS, device-bound key",Low–medium
+Tampering,Modified local health record,Encrypted database record,Offline data integrity loss,"AEAD encryption, MAC/hash, server version check",Low–medium
+Repudiation,User denies record submission,Audit event stream,No non-repudiable event trail,Server-side append-only audit and request ID,Medium
+Information disclosure,Local DB or token extracted,Local database / token,Patient-data exposure,"App sandbox, encrypted DB, Keystore-backed key",Medium on rooted/unlocked device
+Denial of service,Flood sync endpoint / job queue,API service and local queue,Delayed emergency sync,"Rate limit, bounded queue, retry backoff",Medium
+Elevation of privilege,Exported activity abused,Exported component,Unauthorized data access,"Non-exported internal components, authz checks",Low
+Network interception,HTTP cleartext / invalid certificate,API traffic,Read/modify data in transit,"TLS 1.2+ / modern TLS, hostname verification",Low if trust store correct

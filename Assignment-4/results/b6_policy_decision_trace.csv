@@ -1,0 +1,7 @@
+event,input,decision,security_action,reason
+1,Charging + Wi-Fi,sample 10 s; upload every 30 s,encrypt local batch; TLS upload,bulk sync while externally powered
+2,LTE + moving + 80%,sample 30 s; upload every 60 s,encrypt local batch; TLS upload,movement needs fresher track
+3,LTE + stationary + 20%,sample 120 s; upload every 900 s,encrypt and queue,preserve battery; lower urgency
+4,Battery saver 14%,sample 300 s; defer,encrypt and queue,critical reserve; normal emergency override is separate
+5,No network,sample 60 s; queue only,encrypt before queue,no radio retries while offline
+6,Thermal high,sample 180 s; defer,encrypt and queue,limit heat and CPU/radio work

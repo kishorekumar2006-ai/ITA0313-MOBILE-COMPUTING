@@ -1,0 +1,18 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontSize 12
+component "Application layer\nActivities / UI / workers" as App
+component "Application framework\nManagers / system services" as Framework
+component "Android Runtime (ART)\nDEX execution / GC / JNI" as ART
+component "Native libraries & daemons" as Native
+component "HAL services (AIDL)" as HAL
+component "Linux kernel & drivers\nScheduler / memory / Binder / SELinux" as Kernel
+component "Hardware\nCPU / GPU / modem / sensors" as HW
+App --> Framework : framework APIs
+Framework --> ART : managed execution
+Framework --> Native : native services
+Native --> HAL
+HAL --> Kernel
+Kernel --> HW
+@enduml

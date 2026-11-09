@@ -1,0 +1,18 @@
+digraph G {
+graph [rankdir=TB, bgcolor="white", pad="0.22", nodesep="0.32", ranksep="0.42", labelloc="t", label="Interrupted-safe synchronisation sequence", fontsize=18, fontname="Arial"];
+node [shape=box, style="rounded", color="black", fontcolor="black", fontname="Arial", fontsize=12, margin="0.16,0.10"];
+edge [color="black", fontcolor="black", fontname="Arial", fontsize=10, arrowsize=0.7];
+client [label="Mobile client"];
+queue [label="Encrypted local queue"];
+worker [label="Sync worker"];
+api [label="API gateway"];
+db [label="Central DB"];
+ack [label="ACK / version response"];
+client -> queue [label="append encrypted record"];
+queue -> worker [label="pending batch"];
+worker -> api [label="TLS + batch ID"];
+api -> db [label="validate / idempotent upsert"];
+db -> ack [label="commit ACK"];
+ack -> worker [label="server record IDs"];
+worker -> queue [label="mark synced atomically"];
+}

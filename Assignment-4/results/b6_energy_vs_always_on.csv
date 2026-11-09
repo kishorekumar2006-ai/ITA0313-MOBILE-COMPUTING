@@ -1,0 +1,7 @@
+scenario,always_on_10h_mAh,adaptive_10h_mAh,modelled_reduction_percent
+Charging / Wi-Fi,576.5,29.3,94.9
+80% battery / LTE moving,576.5,12.5,97.8
+20% battery / LTE stationary,576.5,2.18,99.6
+Battery saver / LTE,576.5,1.22,99.8
+No connectivity,576.5,2.9,99.5
+Device hot,576.5,1.78,99.7

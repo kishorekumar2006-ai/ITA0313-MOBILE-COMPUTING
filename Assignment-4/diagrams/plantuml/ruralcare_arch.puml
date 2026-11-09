@@ -1,0 +1,23 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontSize 12
+component "Class A Android client" as A
+component "Class B iOS client" as B
+component "Class C J2ME / WML client" as C
+database "Encrypted local queue" as Q
+component "Sync worker" as S
+component "API gateway TLS" as API
+component "Sync service" as Service
+database "Central database" as DB
+A --> Q
+B --> Q
+C --> Q
+Q --> S
+S --> API
+API --> Service
+Service --> DB
+DB --> Service : ACK / version
+Service --> S : acknowledgement
+S --> Q : mark synced
+@enduml

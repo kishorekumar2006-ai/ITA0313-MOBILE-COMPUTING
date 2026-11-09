@@ -1,0 +1,5 @@
+scenario,wakeups_per_8h,estimated_energy_mAh,cause
+Batched baseline,24,196,normal batch windows
+Partial wake lock retained,480,318,Doze benefit reduced because CPU stays awake
+Frequent exact alarms,360,274,Alarm frequency defeats network coalescing
+Corrected policy,18,142,Release wake locks promptly; use deferrable jobs and sensor batching

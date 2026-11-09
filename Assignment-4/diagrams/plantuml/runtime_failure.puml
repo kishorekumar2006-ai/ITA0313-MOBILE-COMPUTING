@@ -1,0 +1,17 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontSize 12
+start
+:Static reference retains Activity;
+:Heap grows;
+:GC pressure increases;
+:Main thread performs blocking call;
+if (Input deadline exceeded?) then (yes)
+:ANR risk recorded;
+:Replace static reference / bound cache / move work;
+else (no)
+:Monitor memory trend;
+endif
+stop
+@enduml

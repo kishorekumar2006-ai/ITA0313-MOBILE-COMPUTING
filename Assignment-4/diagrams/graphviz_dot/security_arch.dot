@@ -1,0 +1,18 @@
+digraph G {
+graph [rankdir=TB, bgcolor="white", pad="0.22", nodesep="0.32", ranksep="0.42", labelloc="t", label="Layered healthcare application security controls", fontsize=18, fontname="Arial"];
+node [shape=box, style="rounded", color="black", fontcolor="black", fontname="Arial", fontsize=12, margin="0.16,0.10"];
+edge [color="black", fontcolor="black", fontname="Arial", fontsize=10, arrowsize=0.7];
+ui [label="UI / permissions in context"];
+domain [label="Domain layer / authorization"];
+data [label="Data layer / encrypted database"];
+key [label="Keystore / Keychain key protection"];
+network [label="TLS client / certificate validation"];
+api [label="API gateway / token validation"];
+audit [label="Audit log / rate limit / server policy"];
+ui -> domain [label="least privilege"];
+domain -> data [label="access policy"];
+data -> key [label="encrypt / decrypt"];
+domain -> network [label="authenticated calls"];
+network -> api [label="TLS"];
+api -> audit [label="validate / log"];
+}
