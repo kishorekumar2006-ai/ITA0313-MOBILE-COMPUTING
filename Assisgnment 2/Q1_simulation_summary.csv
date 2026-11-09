@@ -1,4 +1,0 @@
-Availability,Generated,Immediate delivered,Immediate lost,Queued delivered,Queued delayed,Mean delay (min),Maximum delay (min)
-0.9,10000,8989,1011,10000,1011,0.112,3
-0.6,10000,5926,4074,10000,4074,0.68,11
-0.3,10000,2884,7116,10000,7116,2.404,31

@@ -1,7 +1,0 @@
-Traffic case,Scheme,Peak demand,Usable resources,Utilisation %,Blocked,Free at peak
-Continuous voice,FDMA,60,76,78.95,0,16
-Continuous voice,TDMA,60,70,85.71,0,10
-Bursty telemetry peak,FDMA,4,76,5.26,0,72
-Bursty telemetry peak,TDMA,4,70,5.71,0,66
-Synchronized edge burst,FDMA,90,76,100.0,14,0
-Synchronized edge burst,TDMA,90,70,100.0,20,0
