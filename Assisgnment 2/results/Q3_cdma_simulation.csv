@@ -1,0 +1,10 @@
+Code length,Condition,Users,Max cross-correlation,Processing gain dB,Errors,Bits,BER
+8,Synchronous Walsh,4,0.0,9.03,0,3000,0.0
+8,Random non-orthogonal,4,1.0,9.03,45,3000,0.015
+8,"Near-far 10:1, 1-chip offset",2,0.875,9.03,1505,3000,0.5016666666666667
+16,Synchronous Walsh,4,0.0,12.04,1,3000,0.0003333333333333333
+16,Random non-orthogonal,4,0.375,12.04,6,3000,0.002
+16,"Near-far 10:1, 1-chip offset",2,0.9375,12.04,1548,3000,0.516
+64,Synchronous Walsh,4,0.0,18.06,0,3000,0.0
+64,Random non-orthogonal,4,0.1875,18.06,0,3000,0.0
+64,"Near-far 10:1, 1-chip offset",2,0.9844,18.06,1533,3000,0.511
