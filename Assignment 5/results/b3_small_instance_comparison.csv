@@ -1,0 +1,5 @@
+test_case,feed_items,exact_quality,exact_cache,exact_prefetch,exact_cost,exact_configurations_evaluated,adaptive_quality,adaptive_cache,adaptive_prefetch,adaptive_cost,adaptive_operations,costs_match
+T1_small_balanced,6,1.0,2,1,1.836,48,1.0,6,3,2.916,1,0
+T2_medium,18,1.0,2,1,5.508,48,1.0,6,3,8.748,1,0
+T3_low_memory,24,1.0,2,1,7.344,48,1.0,2,3,9.264,3,0
+T4_counterexample,10,1.0,2,1,3.06,48,1.0,6,3,4.86,1,0

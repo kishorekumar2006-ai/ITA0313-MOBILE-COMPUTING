@@ -1,0 +1,1 @@
+digraph A3 { rankdir=LR; node [shape=box]; Event -> Persist -> Choose -> Gate; Gate -> Execute [label="feasible"]; Execute -> Commit [label="success"]; Execute -> Undo [label="failure/cancel"]; }

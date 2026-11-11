@@ -1,0 +1,5 @@
+device_profile,battery_percent,cpu_factor,network_mbps,heuristic_resolution,heuristic_bitrate_mbps,upload_decision,estimated_completion_s,estimated_energy_units,estimated_battery_impact_percent,exhaustive_choice,exhaustive_bitrate_mbps,exhaustive_objective_score,same_resolution_as_exact
+Entry-level,18,0.8,2.0,480p,1.0,QUEUE_FOR_WIFI,759.6,4.48,2.49,480p,1.0,36.938,1
+Mid-range,58,1.4,8.0,1080p,5.0,UPLOAD_NOW,1552.2,12.86,2.22,480p,1.0,20.16,0
+Flagship,86,2.2,35.0,1080p,5.0,UPLOAD_NOW,791.7,10.58,1.23,1080p,5.0,16.34,1
+Adversarial radio-rich / low battery,12,1.8,30.0,480p,1.0,DEFER_LOW_BATTERY,192.3,2.78,2.32,480p,1.0,23.668,1

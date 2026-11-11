@@ -1,0 +1,18 @@
+@startuml
+start
+:Receive sensor / cloud / push event;
+:Persist work state;
+:Select next candidate;
+:Check constraints and security;
+if (Feasible?) then (yes)
+:Execute idempotent step;
+if (Success?) then (yes)
+:Commit and acknowledge;
+else (no)
+:Rollback / cancel / requeue;
+endif
+else (no)
+:Persist deferred state;
+endif
+stop
+@enduml

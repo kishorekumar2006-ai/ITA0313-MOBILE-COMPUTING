@@ -1,0 +1,1 @@
+digraph A1 { rankdir=LR; node [shape=box]; Sensor -> Intent [label="event"]; Intent -> WorkManager [label="enqueue"]; WorkManager -> Gate [label="constraints"]; Gate -> Store [label="defer/persist"]; Gate -> Notification [label="critical alert"]; Store -> API [label="eligible upload"]; }

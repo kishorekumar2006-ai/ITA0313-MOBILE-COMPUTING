@@ -1,0 +1,15 @@
+@startuml
+actor Sensor
+component Intent
+component WorkManager
+component ConstraintGate
+database EncryptedQueue
+cloud Backend
+component NotificationManager
+Sensor -> Intent : event
+Intent -> WorkManager : enqueue
+WorkManager -> ConstraintGate : check battery/network/permission
+ConstraintGate -> EncryptedQueue : defer/persist
+EncryptedQueue -> Backend : eligible authenticated upload
+ConstraintGate -> NotificationManager : critical alert
+@enduml

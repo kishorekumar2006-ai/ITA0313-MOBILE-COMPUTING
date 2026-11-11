@@ -1,0 +1,1 @@
+digraph A4 { rankdir=LR; node [shape=box]; Input -> Local [label="on-device"]; Input -> Cloud [label="offload"]; Local -> Hybrid [label="fallback"]; Cloud -> Hybrid [label="response"]; Hybrid -> Result; }

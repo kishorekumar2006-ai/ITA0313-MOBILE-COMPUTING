@@ -1,0 +1,12 @@
+@startuml
+start
+:Mobile input;
+fork
+:Local preprocessing / inference;
+fork again
+:Cloud service processing;
+end fork
+:Hybrid policy validates privacy, latency and availability;
+:Return result to UI;
+stop
+@enduml

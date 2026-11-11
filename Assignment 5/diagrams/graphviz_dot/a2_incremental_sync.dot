@@ -1,0 +1,1 @@
+digraph A2 { rankdir=LR; node [shape=box]; Read -> Check; Check -> Conflict [label="version conflict"]; Check -> Feasible [label="no conflict"]; Conflict -> Defer [label="merge / backoff"]; Feasible -> Upload [label="safe and eligible"]; Feasible -> Defer [label="temporary constraint"]; Feasible -> Quarantine [label="unsafe"]; }

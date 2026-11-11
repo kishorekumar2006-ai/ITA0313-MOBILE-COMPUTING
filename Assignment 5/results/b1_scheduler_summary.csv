@@ -1,0 +1,7 @@
+scenario,strategy,enqueued,deferred,cancelled,successful,peak_concurrent_workers,backlog_ids
+good,fifo,8,0,0,8,2,
+good,priority,8,0,0,8,2,
+doze_low,fifo,8,6,0,2,2,R01;R03;R05;R06;R07;R08
+doze_low,priority,8,6,0,2,2,R06;R08;R01;R07;R03;R05
+permission_revoked,fifo,8,0,8,0,0,
+permission_revoked,priority,8,0,8,0,0,

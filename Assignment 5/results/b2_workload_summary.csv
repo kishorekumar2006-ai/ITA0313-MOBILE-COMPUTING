@@ -1,0 +1,3 @@
+workload,input_records,processed,delivered,deferred,security_rejected,retry_events
+A_easy,10,10,10,0,0,0
+B_adversarial,10,10,0,7,3,7

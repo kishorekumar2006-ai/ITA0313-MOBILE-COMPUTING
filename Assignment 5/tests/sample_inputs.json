@@ -1,0 +1,60 @@
+{
+  "b1_scenarios": [
+    {
+      "name": "good",
+      "battery": 82,
+      "network": "WIFI",
+      "doze": false,
+      "permission": true
+    },
+    {
+      "name": "doze_low",
+      "battery": 12,
+      "network": "METERED",
+      "doze": true,
+      "permission": true
+    },
+    {
+      "name": "permission_revoked",
+      "battery": 75,
+      "network": "WIFI",
+      "doze": false,
+      "permission": false
+    }
+  ],
+  "b2_workloads": {
+    "easy_records": 10,
+    "adversarial_records": 10,
+    "common_constraints": "same rule; adversarial changes battery/network/encryption conditions"
+  },
+  "b3_search_space": {
+    "quality_levels": 3,
+    "cache_sizes": [
+      2,
+      4,
+      6,
+      8
+    ],
+    "prefetch_windows": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "exact_configurations": 48
+  },
+  "b4_media_options": [
+    {
+      "resolution": "480p",
+      "bitrate_mbps": 1.0
+    },
+    {
+      "resolution": "720p",
+      "bitrate_mbps": 2.5
+    },
+    {
+      "resolution": "1080p",
+      "bitrate_mbps": 5.0
+    }
+  ]
+}

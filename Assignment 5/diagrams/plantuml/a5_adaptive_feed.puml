@@ -1,0 +1,15 @@
+@startuml
+start
+:Measure frame time, battery and memory;
+:Compare with QoS thresholds;
+:Adjust decode quality, cache and prefetch;
+:Render next batch;
+:Sample stable window;
+if (Feed active?) then (yes)
+repeat
+:Measure frame time, battery and memory;
+repeat while (Feed active?)
+else (no)
+stop
+endif
+@enduml

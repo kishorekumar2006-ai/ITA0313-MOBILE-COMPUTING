@@ -1,0 +1,15 @@
+@startuml
+start
+:Read next local record;
+:Check ID, version, encryption and consent;
+if (Conflict?) then (yes)
+:Resolve by version policy;
+else (no)
+if (Safe and feasible?) then (yes)
+:Idempotent upload and ACK;
+else (temporary constraint)
+:Persist retry state;
+endif
+endif
+stop
+@enduml
